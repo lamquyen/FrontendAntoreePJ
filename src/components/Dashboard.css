@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btn {
+    @apply text-gray-800 text-xl hover:text-white flex items-center p-2 rounded-lg hover:bg-white dark:hover:bg-gray-700;
+}
+
+.textInUser {
+    @apply text-xl font-semibold mb-2
+}
+
+.infor {
+    @apply border w-1/2 text-lg
+}
