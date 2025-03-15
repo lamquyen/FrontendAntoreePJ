@@ -8,13 +8,13 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
+    const API_URL = import.meta.env.VITE_API_URL;
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/users/login', { email, password });
+            const response = await axios.post(`${API_URL}/users/login`, { email, password });
             localStorage.setItem('token', response.data.token);
             navigate('/user');
         } catch (err) {

@@ -11,12 +11,12 @@ const UserList = () => {
     const [editData, setEditData] = useState({}); // D
 
     const token = localStorage.getItem("token")
-
+    const API_URL = import.meta.env.VITE_API_URL;
     useEffect(() => {
         const fetchUsers = async () => {
             try {
 
-                const response = await axios.get("http://127.0.0.1:8000/api/users/getUser", {
+                const response = await axios.get(`${API_URL}/users/getUser`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Gửi token để xác thực
                     },
@@ -52,7 +52,7 @@ const UserList = () => {
             console.log("Dữ liệu gửi lên API:", editData);
 
 
-            const response = await axios.put(`http://127.0.0.1:8000/api/users/${id}`, editData, {
+            const response = await axios.put(`${API_URL}/users/${id}`, editData, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -70,7 +70,7 @@ const UserList = () => {
 
         try {
             ;
-            await axios.delete(`http://127.0.0.1:8000/api/users/${id}`, {
+            await axios.delete(`${API_URL}/users/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

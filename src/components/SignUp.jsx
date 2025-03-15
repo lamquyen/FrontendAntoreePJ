@@ -12,7 +12,7 @@ const SignUp = () => {
         repeat_password: "",
     });
     const navigate = useNavigate();
-
+    const API_URL = import.meta.env.VITE_API_URL;
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -27,7 +27,7 @@ const SignUp = () => {
         }
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/users", {
+            const response = await axios.post(`${API_URL}/users`, {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,

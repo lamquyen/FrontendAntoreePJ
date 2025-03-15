@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const token = localStorage.getItem('token');
     const handleLogout = () => {
@@ -21,7 +22,7 @@ const Dashboard = () => {
             return;
         }
 
-        axios.post('http://127.0.0.1:8000/api/users/logout', {}, {
+        axios.post(`${API_URL}/users/logout`, {}, {
             headers: { Authorization: `Bearer ${token}` } // Chắc chắn đúng format
         })
             .then(() => {

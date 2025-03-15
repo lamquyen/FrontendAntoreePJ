@@ -13,7 +13,7 @@ const User = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
-
+    const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -22,7 +22,7 @@ const User = () => {
             return;
         }
 
-        axios.get('http://127.0.0.1:8000/api/user', {
+        axios.get(`${API_URL}/user`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -46,7 +46,7 @@ const User = () => {
             return;
         }
 
-        axios.put('http://127.0.0.1:8000/api/user', { name, email, password: password ? password : undefined }, {
+        axios.put(`${API_URL}/user`, { name, email, password: password ? password : undefined }, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
