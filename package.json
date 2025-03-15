@@ -1,19 +1,21 @@
 {
   "name": "my-react-app",
   "private": true,
+  "homepage": "https://lamquyen.github.io/FrontendAntoreePJ",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deloy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.8.3",
     "flowbite": "^3.1.2",
     "flowbite-react": "^0.10.2",
-    "gh-pages": "^6.3.0",
     "jwt-decode": "^4.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
